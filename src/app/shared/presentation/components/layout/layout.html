@@ -1,0 +1,97 @@
+<div class="texcheck-layout">
+  <!-- Navbar -->
+  <nav class="texcheck-navbar">
+    <div class="navbar-left">
+      <div class="logo">
+        <img src="TexCheck.png" alt="TexCheck Logo" class="logo-img" />
+      </div>
+      <div class="search-box">
+        <mat-icon>search</mat-icon>
+        <input type="text" placeholder="Search assets, machines, reports..." />
+      </div>
+    </div>
+
+    <div class="navbar-right">
+      <button mat-icon-button class="export-btn">
+        <mat-icon>cloud_download</mat-icon>
+        <span>Export</span>
+      </button>
+      <button mat-icon-button class="notification-btn">
+        <mat-icon>notifications</mat-icon>
+        <span class="notification-badge">8</span>
+      </button>
+      <div class="user-profile">
+        <div class="user-avatar-initial">SM</div>
+        <div class="user-info">
+          <span class="user-name">Sara Mitchell</span>
+          <span class="user-role">Manager</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content with Sidebar -->
+  <div class="texcheck-main">
+    <!-- Sidebar -->
+    <aside class="texcheck-sidebar">
+      <!-- Logo Section -->
+      <div class="sidebar-logo">
+        <img src="TexCheck.png" alt="TexCheck Logo" class="sidebar-logo-img" />
+        <span class="sidebar-logo-text">TexCheck</span>
+      </div>
+
+      <!-- Navigation Section -->
+      <div class="sidebar-section">
+        @for (item of sidebarItems(); track item.link) {
+          <a
+            [routerLink]="item.link"
+            routerLinkActive="active"
+            class="sidebar-item"
+            [class.has-badge]="item.badge"
+          >
+            <mat-icon>{{ item.icon }}</mat-icon>
+            <span>{{ item.label }}</span>
+            @if (item.badge) {
+              <span class="badge">{{ item.badge }}</span>
+            }
+          </a>
+        }
+      </div>
+
+      <!-- Divider -->
+      <div class="sidebar-divider"></div>
+
+      <!-- System Section -->
+      <div class="sidebar-section system">
+        <div class="section-title">SYSTEM</div>
+        @for (item of systemItems(); track item.link) {
+          <a [routerLink]="item.link" routerLinkActive="active" class="sidebar-item">
+            <mat-icon>{{ item.icon }}</mat-icon>
+            <span>{{ item.label }}</span>
+            @if (item.badge) {
+              <span class="badge">{{ item.badge }}</span>
+            }
+          </a>
+        }
+      </div>
+
+      <!-- User Card Footer -->
+      <div class="sidebar-footer">
+        <div class="user-card">
+          <div class="user-avatar-initial-small">SM</div>
+          <div class="user-card-info">
+            <span class="user-name-small">Sara Mitchell</span>
+            <span class="user-role-small">Maintenance Manager</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Page Content -->
+    <main class="texcheck-content">
+      <router-outlet />
+    </main>
+  </div>
+</div>
+
+<app-footer-content />

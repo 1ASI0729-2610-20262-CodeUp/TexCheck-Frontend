@@ -1,0 +1,70 @@
+// TexCheck Color Palette
+// Modern and Professional Design System
+
+// Primary Colors
+$navy-tech: #0B1F33;           // Navy Tech - navbar, sidebar, titles
+$teal-digital: #0FB9B1;        // Teal Digital - buttons, highlights, links
+$green-signal: #39D353;        // Green Signal - positive states, checks, success
+$soft-industrial-gray: #F2F4F7; // Soft Gray - backgrounds, cards, tables
+
+// Secondary Colors
+$critical-red: #FF4757;        // Critical alerts
+$warning-orange: #FFA502;      // Warning states
+$info-blue: #3B82F6;           // Info states
+
+// Neutral Colors
+$dark-gray: #2D3436;           // Dark text
+$medium-gray: #636E72;         // Medium text
+$light-gray: #DFE6E9;          // Light borders
+$white: #FFFFFF;               // White background
+
+// Status Colors
+$status-healthy: $green-signal;
+$status-warning: $warning-orange;
+$status-critical: $critical-red;
+$status-operational: $teal-digital;
+$status-maintenance: $warning-orange;
+$status-down: $critical-red;
+
+// Typography Colors
+$text-primary: $dark-gray;
+$text-secondary: $medium-gray;
+$text-light: $light-gray;
+
+// Backgrounds
+$background-primary: $white;
+$background-secondary: $soft-industrial-gray;
+$background-tertiary: #E8F0F3;
+
+// Borders
+$border-color: $light-gray;
+$border-color-light: #F5F6F7;
+
+// Shadows
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+// Spacing Variables
+$spacing-unit: 8px;
+$spacing-xs: $spacing-unit * 0.5;    // 4px
+$spacing-sm: $spacing-unit * 1;      // 8px
+$spacing-md: $spacing-unit * 1.5;    // 12px
+$spacing-lg: $spacing-unit * 2;      // 16px
+$spacing-xl: $spacing-unit * 3;      // 24px
+$spacing-xxl: $spacing-unit * 4;     // 32px
+
+// Border Radius
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-full: 9999px;
+
+// Z-Index Scale
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
