@@ -1,4 +1,207 @@
-<div class="container-with-spacing">
-  <h1>{{ 'dashboard.title' | translate }}</h1>
-  <p>{{ 'dashboard.content' | translate }}</p>
+﻿<div class="dash">
+  <header class="dash__header">
+    <div class="dash__titles">
+      <h1 class="dash__title">{{ 'dashboard.overview.title' | translate }}</h1>
+      <p class="dash__subtitle">{{ 'dashboard.overview.subtitle' | translate }}</p>
+    </div>
+    <div class="dash__actions">
+      <mat-form-field appearance="outline" class="dash__date-field" subscriptSizing="dynamic">
+        <mat-label>{{ 'dashboard.actions.dateRangeLabel' | translate }}</mat-label>
+        <mat-select value="june2025">
+          <mat-option value="june2025">{{ 'dashboard.actions.dateRangeValue' | translate }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-flat-button color="primary" type="button" class="dash__export">
+        <mat-icon aria-hidden="true">download</mat-icon>
+        {{ 'dashboard.actions.export' | translate }}
+      </button>
+    </div>
+  </header>
+
+  <section class="dash__kpis" aria-label="KPIs">
+    <article class="dash-kpi">
+      <div class="dash-kpi__top">
+        <mat-icon class="dash-kpi__icon dash-kpi__icon--blue" aria-hidden="true">precision_manufacturing</mat-icon>
+        <span class="dash-kpi__trend dash-kpi__trend--good">{{ 'dashboard.kpi.totalAssets.trend' | translate }}</span>
+      </div>
+      <div class="dash-kpi__value">{{ 'dashboard.kpi.totalAssets.value' | translate }}</div>
+      <div class="dash-kpi__label">{{ 'dashboard.kpi.totalAssets.label' | translate }}</div>
+      <p class="dash-kpi__footer">{{ 'dashboard.kpi.totalAssets.footer' | translate }}</p>
+    </article>
+
+    <article class="dash-kpi">
+      <div class="dash-kpi__top">
+        <mat-icon class="dash-kpi__icon dash-kpi__icon--amber" aria-hidden="true">build</mat-icon>
+        <span class="dash-kpi__trend dash-kpi__trend--warn">{{ 'dashboard.kpi.pendingMaintenance.trend' | translate }}</span>
+      </div>
+      <div class="dash-kpi__value">{{ 'dashboard.kpi.pendingMaintenance.value' | translate }}</div>
+      <div class="dash-kpi__label">{{ 'dashboard.kpi.pendingMaintenance.label' | translate }}</div>
+      <p class="dash-kpi__footer dash-kpi__footer--warn">{{ 'dashboard.kpi.pendingMaintenance.footer' | translate }}</p>
+    </article>
+
+    <article class="dash-kpi dash-kpi--danger-border">
+      <div class="dash-kpi__top">
+        <mat-icon class="dash-kpi__icon dash-kpi__icon--red" aria-hidden="true">error_outline</mat-icon>
+        <span class="dash-kpi__pill dash-kpi__pill--danger">{{ 'dashboard.kpi.activeFailures.status' | translate }}</span>
+      </div>
+      <div class="dash-kpi__value">{{ 'dashboard.kpi.activeFailures.value' | translate }}</div>
+      <div class="dash-kpi__label">{{ 'dashboard.kpi.activeFailures.label' | translate }}</div>
+      <p class="dash-kpi__footer dash-kpi__footer--danger">
+        <mat-icon class="dash-kpi__footer-icon" aria-hidden="true">warning</mat-icon>
+        {{ 'dashboard.kpi.activeFailures.footer' | translate }}
+      </p>
+    </article>
+
+    <article class="dash-kpi">
+      <div class="dash-kpi__top">
+        <mat-icon class="dash-kpi__icon dash-kpi__icon--green" aria-hidden="true">favorite</mat-icon>
+        <span class="dash-kpi__pill dash-kpi__pill--good">{{ 'dashboard.kpi.systemHealth.status' | translate }}</span>
+      </div>
+      <div class="dash-kpi__value">{{ 'dashboard.kpi.systemHealth.value' | translate }}</div>
+      <div class="dash-kpi__label">{{ 'dashboard.kpi.systemHealth.label' | translate }}</div>
+      <div class="dash-kpi__progress" role="progressbar" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100">
+        <span class="dash-kpi__progress-fill" style="width: 98%"></span>
+      </div>
+      <p class="dash-kpi__footer">{{ 'dashboard.kpi.systemHealth.footer' | translate }}</p>
+    </article>
+  </section>
+
+  <div class="dash__grid">
+    <section class="dash-panel dash-alerts" aria-labelledby="dash-alerts-heading">
+      <div class="dash-panel__head">
+        <div class="dash-panel__head-left">
+          <h2 id="dash-alerts-heading" class="dash-panel__title">{{ 'dashboard.alerts.title' | translate }}</h2>
+          <span class="dash-badge dash-badge--new">{{ 'dashboard.alerts.newBadge' | translate }}</span>
+        </div>
+        <button mat-button color="primary" type="button" class="dash-link-btn">
+          {{ 'dashboard.alerts.viewAll' | translate }}
+        </button>
+      </div>
+      <ul class="dash-alerts__list">
+        @for (row of alertRows; track row.titleKey) {
+          <li class="dash-alert">
+            <div class="dash-alert__icon-wrap">
+              <mat-icon class="dash-alert__icon" aria-hidden="true">{{ row.icon }}</mat-icon>
+            </div>
+            <div class="dash-alert__body">
+              <div class="dash-alert__title">{{ row.titleKey | translate }}</div>
+              <div class="dash-alert__meta">
+                <span class="dash-alert__zone">{{ row.zoneKey | translate }}</span>
+                <span
+                  class="dash-alert__status"
+                  [class.dash-alert__status--critical]="row.status === 'critical'"
+                  [class.dash-alert__status--warning]="row.status === 'warning'"
+                  [class.dash-alert__status--scheduled]="row.status === 'scheduled'"
+                  [class.dash-alert__status--resolved]="row.status === 'resolved'"
+                >
+                  {{ alertStatusKey(row.status) | translate }}
+                </span>
+              </div>
+            </div>
+            <time class="dash-alert__time">{{ row.timeKey | translate }}</time>
+          </li>
+        }
+      </ul>
+    </section>
+
+    <div class="dash__stack">
+      <section class="dash-panel dash-chart-card" aria-labelledby="dash-maint-heading">
+        <div class="dash-panel__head">
+          <h2 id="dash-maint-heading" class="dash-panel__title">{{ 'dashboard.maintenance.title' | translate }}</h2>
+          <mat-form-field appearance="outline" class="dash__period-field" subscriptSizing="dynamic">
+            <mat-select [placeholder]="'dashboard.maintenance.periodMonthly' | translate" value="monthly">
+              <mat-option value="monthly">{{ 'dashboard.maintenance.periodMonthly' | translate }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="dash-chart-card__legend">
+          <span class="dash-chart-card__legend-item dash-chart-card__legend-item--scheduled">
+            <span class="dash-chart-card__dot"></span>
+            {{ 'dashboard.maintenance.legendScheduled' | translate }}
+          </span>
+          <span class="dash-chart-card__legend-item dash-chart-card__legend-item--completed">
+            <span class="dash-chart-card__dot"></span>
+            {{ 'dashboard.maintenance.legendCompleted' | translate }}
+          </span>
+        </div>
+        <div class="dash-line-chart">
+          <svg class="dash-line-chart__svg" viewBox="0 0 400 140" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="dashGradBlue" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#5B8DEF" stop-opacity="0.35" />
+                <stop offset="100%" stop-color="#5B8DEF" stop-opacity="0" />
+              </linearGradient>
+              <linearGradient id="dashGradGreen" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#39D353" stop-opacity="0.35" />
+                <stop offset="100%" stop-color="#39D353" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+            <line class="dash-line-chart__grid" x1="0" y1="35" x2="400" y2="35" />
+            <line class="dash-line-chart__grid" x1="0" y1="70" x2="400" y2="70" />
+            <line class="dash-line-chart__grid" x1="0" y1="105" x2="400" y2="105" />
+            <polygon fill="url(#dashGradBlue)" points="0,110 50,95 100,100 150,88 200,92 250,85 300,90 350,82 400,78 400,130 0,130" />
+            <polyline class="dash-line-chart__line dash-line-chart__line--scheduled" fill="none" points="0,110 50,95 100,100 150,88 200,92 250,85 300,90 350,82 400,78" />
+            <polygon fill="url(#dashGradGreen)" points="0,118 55,108 105,112 155,102 205,105 255,98 305,102 355,95 400,88 400,130 0,130" />
+            <polyline class="dash-line-chart__line dash-line-chart__line--completed" fill="none" points="0,118 55,108 105,112 155,102 205,105 255,98 305,102 355,95 400,88" />
+          </svg>
+        </div>
+      </section>
+
+      <section class="dash-panel dash-equip" aria-labelledby="dash-equip-heading">
+        <h2 id="dash-equip-heading" class="dash-panel__title dash-equip__title">{{ 'dashboard.equipment.title' | translate }}</h2>
+        <div class="dash-equip__body">
+          <div class="dash-donut-wrap">
+            <div class="dash-donut" aria-hidden="true"></div>
+            <div class="dash-donut-center">
+              <span class="dash-donut-center__value">124</span>
+              <span class="dash-donut-center__label">{{ 'dashboard.equipment.totalUnits' | translate }}</span>
+            </div>
+          </div>
+          <div class="dash-equip__bars">
+            <div class="dash-bar-row">
+              <div class="dash-bar-row__label">
+                <span class="dash-bar-row__name">{{ 'dashboard.equipment.operational' | translate }}</span>
+                <span class="dash-bar-row__count">98</span>
+              </div>
+              <div class="dash-bar-row__track">
+                <span class="dash-bar-row__fill dash-bar-row__fill--ok" style="width: 79%"></span>
+              </div>
+            </div>
+            <div class="dash-bar-row">
+              <div class="dash-bar-row__label">
+                <span class="dash-bar-row__name">{{ 'dashboard.equipment.maintenance' | translate }}</span>
+                <span class="dash-bar-row__count">21</span>
+              </div>
+              <div class="dash-bar-row__track">
+                <span class="dash-bar-row__fill dash-bar-row__fill--warn" style="width: 17%"></span>
+              </div>
+            </div>
+            <div class="dash-bar-row">
+              <div class="dash-bar-row__label">
+                <span class="dash-bar-row__name">{{ 'dashboard.equipment.down' | translate }}</span>
+                <span class="dash-bar-row__count">5</span>
+              </div>
+              <div class="dash-bar-row__track">
+                <span class="dash-bar-row__fill dash-bar-row__fill--bad" style="width: 4%"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dash-equip__stats">
+          <div class="dash-stat">
+            <span class="dash-stat__value">{{ 'dashboard.equipment.statUtilizationValue' | translate }}</span>
+            <span class="dash-stat__label">{{ 'dashboard.equipment.statUtilizationLabel' | translate }}</span>
+          </div>
+          <div class="dash-stat">
+            <span class="dash-stat__value">{{ 'dashboard.equipment.statDowntimeValue' | translate }}</span>
+            <span class="dash-stat__label">{{ 'dashboard.equipment.statDowntimeLabel' | translate }}</span>
+          </div>
+          <div class="dash-stat">
+            <span class="dash-stat__value">{{ 'dashboard.equipment.statSlaValue' | translate }}</span>
+            <span class="dash-stat__label">{{ 'dashboard.equipment.statSlaLabel' | translate }}</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
 </div>

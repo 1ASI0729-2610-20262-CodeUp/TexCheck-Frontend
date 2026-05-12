@@ -40,8 +40,98 @@
     }
   },
   "dashboard": {
-    "title": "Dashboard",
-    "content": "Fleet overview and key metrics will appear here."
+    "overview": {
+      "title": "Dashboard Overview",
+      "subtitle": "Monitor fleet health, maintenance workload, and critical alerts at a glance."
+    },
+    "actions": {
+      "dateRangeLabel": "Reporting period",
+      "dateRangeValue": "Jun 1 – Jun 18, 2025",
+      "export": "Export"
+    },
+    "kpi": {
+      "totalAssets": {
+        "value": "124",
+        "trend": "↑ +4.2%",
+        "label": "Total Assets",
+        "footer": "Across 6 production zones"
+      },
+      "pendingMaintenance": {
+        "value": "12",
+        "trend": "↑ +2",
+        "label": "Pending Maintenance",
+        "footer": "3 overdue by >48hrs"
+      },
+      "activeFailures": {
+        "value": "3",
+        "status": "Critical",
+        "label": "Active Failures",
+        "footer": "Immediate action required"
+      },
+      "systemHealth": {
+        "value": "98%",
+        "status": "Healthy",
+        "label": "System Health",
+        "footer": "Within SLA targets"
+      }
+    },
+    "alerts": {
+      "title": "Recent Alerts",
+      "newBadge": "5 New",
+      "viewAll": "View all",
+      "status": {
+        "critical": "Critical",
+        "warning": "Warning",
+        "scheduled": "Scheduled",
+        "resolved": "Resolved"
+      },
+      "items": {
+        "a1": {
+          "title": "Machine #42: Vibration detected",
+          "zone": "Zone B",
+          "time": "2 min ago"
+        },
+        "a2": {
+          "title": "Line 3: Temperature drift",
+          "zone": "Zone A",
+          "time": "14 min ago"
+        },
+        "a3": {
+          "title": "Preventive inspection due",
+          "zone": "Zone D",
+          "time": "Today · 08:00"
+        },
+        "a4": {
+          "title": "Spindle lubrication completed",
+          "zone": "Zone C",
+          "time": "1 hr ago"
+        },
+        "a5": {
+          "title": "Machine #17: Power anomaly",
+          "zone": "Zone E",
+          "time": "35 min ago"
+        }
+      }
+    },
+    "maintenance": {
+      "title": "Maintenance Activity",
+      "periodMonthly": "Monthly",
+      "legendScheduled": "Scheduled",
+      "legendCompleted": "Completed"
+    },
+    "equipment": {
+      "title": "Equipment Status",
+      "totalUnits": "total units",
+      "operational": "Operational",
+      "maintenance": "Maintenance",
+      "down": "Down",
+      "statUtilizationValue": "79%",
+      "statUtilizationLabel": "Utilization",
+      "statDowntimeValue": "4.2h",
+      "statDowntimeLabel": "Avg Downtime",
+      "statSlaValue": "96%",
+      "statSlaLabel": "Uptime SLA"
+    }
   },
   "layout": {
     "nav": {

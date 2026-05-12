@@ -1,5 +1,5 @@
 {
-  "option" : {
+  "option": {
     "home": "Inicio",
     "about": "Acerca de",
     "categories": "Categorías",
@@ -40,8 +40,98 @@
     }
   },
   "dashboard": {
-    "title": "Panel",
-    "content": "Aquí aparecerá la vista general de la flota y las métricas clave."
+    "overview": {
+      "title": "Resumen del panel",
+      "subtitle": "Supervisa el estado de la flota, la carga de mantenimiento y las alertas críticas de un vistazo."
+    },
+    "actions": {
+      "dateRangeLabel": "Periodo del informe",
+      "dateRangeValue": "1 jun – 18 jun 2025",
+      "export": "Exportar"
+    },
+    "kpi": {
+      "totalAssets": {
+        "value": "124",
+        "trend": "↑ +4,2%",
+        "label": "Activos totales",
+        "footer": "En 6 zonas de producción"
+      },
+      "pendingMaintenance": {
+        "value": "12",
+        "trend": "↑ +2",
+        "label": "Mantenimiento pendiente",
+        "footer": "3 con retraso >48 h"
+      },
+      "activeFailures": {
+        "value": "3",
+        "status": "Crítico",
+        "label": "Fallos activos",
+        "footer": "Acción inmediata requerida"
+      },
+      "systemHealth": {
+        "value": "98%",
+        "status": "Saludable",
+        "label": "Salud del sistema",
+        "footer": "Dentro de los objetivos SLA"
+      }
+    },
+    "alerts": {
+      "title": "Alertas recientes",
+      "newBadge": "5 nuevas",
+      "viewAll": "Ver todas",
+      "status": {
+        "critical": "Crítico",
+        "warning": "Advertencia",
+        "scheduled": "Programado",
+        "resolved": "Resuelto"
+      },
+      "items": {
+        "a1": {
+          "title": "Máquina n.º 42: Vibración detectada",
+          "zone": "Zona B",
+          "time": "hace 2 min"
+        },
+        "a2": {
+          "title": "Línea 3: Deriva de temperatura",
+          "zone": "Zona A",
+          "time": "hace 14 min"
+        },
+        "a3": {
+          "title": "Inspección preventiva pendiente",
+          "zone": "Zona D",
+          "time": "Hoy · 08:00"
+        },
+        "a4": {
+          "title": "Lubricación de husillo completada",
+          "zone": "Zona C",
+          "time": "hace 1 h"
+        },
+        "a5": {
+          "title": "Máquina n.º 17: Anomalía eléctrica",
+          "zone": "Zona E",
+          "time": "hace 35 min"
+        }
+      }
+    },
+    "maintenance": {
+      "title": "Actividad de mantenimiento",
+      "periodMonthly": "Mensual",
+      "legendScheduled": "Programado",
+      "legendCompleted": "Completado"
+    },
+    "equipment": {
+      "title": "Estado del equipamiento",
+      "totalUnits": "unidades totales",
+      "operational": "Operativo",
+      "maintenance": "Mantenimiento",
+      "down": "Parado",
+      "statUtilizationValue": "79%",
+      "statUtilizationLabel": "Utilización",
+      "statDowntimeValue": "4,2 h",
+      "statDowntimeLabel": "Tiempo medio de parada",
+      "statSlaValue": "96%",
+      "statSlaLabel": "SLA de disponibilidad"
+    }
   },
   "layout": {
     "nav": {
