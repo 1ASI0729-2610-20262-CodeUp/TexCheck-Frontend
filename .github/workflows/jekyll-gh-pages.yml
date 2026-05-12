@@ -2,7 +2,7 @@ name: Deploy Angular App
 
 on:
   push:
-    branches: [main]
+    branches: [develop]
 
 permissions:
   contents: read
