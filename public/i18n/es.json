@@ -10,8 +10,74 @@
     "content": "TexCheck es una Plataforma de Monitoreo de Flota para mantenimiento predictivo y optimización de activos."
   },
   "home": {
-    "title": "Panel de Control",
-    "content": "Bienvenido a TexCheck Dashboard"
+    "hero": {
+      "pill": "PYMEs textiles · Mantenimiento industrial",
+      "title": "TexCheck para tu taller textil",
+      "lead": "Sustituye hojas de cálculo y registros manuales por trazabilidad real: mantenimiento de maquinaria, historial por activo y planificación preventiva en un solo lugar."
+    },
+    "personas": {
+      "section-title": "Para quién es TexCheck",
+      "leaders": {
+        "title": "Líderes operativos",
+        "subtitle": "Visibilidad del taller y decisiones con datos",
+        "f1": "KPIs y paneles para seguir rendimiento y costes",
+        "f2": "Fallos y paradas visibles para priorizar acciones",
+        "f3": "Planificación preventiva y seguimiento del cumplimiento"
+      },
+      "staff": {
+        "title": "Personal de mantenimiento",
+        "subtitle": "Menos fricción en planta, más información útil",
+        "f1": "Registro rápido de incidencias y trabajo realizado",
+        "f2": "Coordinación clara con el equipo y turnos",
+        "f3": "Historial por máquina y componente, siempre a mano",
+        "f4": "Flujo pensado para uso en móvil en el pasillo"
+      }
+    },
+    "cta": {
+      "title": "¿Listo para ver el conjunto?",
+      "hint": "El panel concentra la vista general y las métricas clave del taller.",
+      "button": "Ir al panel"
+    }
+  },
+  "dashboard": {
+    "title": "Panel",
+    "content": "Aquí aparecerá la vista general de la flota y las métricas clave."
+  },
+  "layout": {
+    "nav": {
+      "home": "Inicio",
+      "dashboard": "Panel",
+      "assets": "Activos",
+      "maintenance": "Mantenimiento",
+      "failures": "Fallos",
+      "reports": "Informes"
+    },
+    "system": {
+      "section": "SISTEMA",
+      "notifications": "Notificaciones",
+      "users": "Usuarios",
+      "settings": "Configuración"
+    },
+    "search": {
+      "placeholder": "Buscar activos..."
+    },
+    "user": {
+      "role-demo": "Gerente de mantenimiento",
+      "short-role": "Gerente",
+      "profile": "Perfil",
+      "sign-out": "Cerrar sesión",
+      "menu": "Menú de usuario"
+    },
+    "header": {
+      "notifications": "Notificaciones"
+    },
+    "footer": {
+      "last-synced": "Última sincronización: hoy a las 09:45",
+      "refresh-sync": "Actualizar estado de sincronización",
+      "add-asset": "Añadir activo",
+      "schedule-maintenance": "Programar mantenimiento",
+      "report-failure": "Reportar fallo"
+    }
   },
   "page-not-found": {
     "title": "Página no encontrada",

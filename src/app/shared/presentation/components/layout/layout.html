@@ -1,56 +1,25 @@
 <div class="texcheck-layout">
-  <!-- Navbar -->
-  <nav class="texcheck-navbar">
-    <div class="navbar-left">
-      <div class="logo">
-        <img src="TexCheck.png" alt="TexCheck Logo" class="logo-img" />
-      </div>
-      <div class="search-box">
-        <mat-icon>search</mat-icon>
-        <input type="text" placeholder="Search assets, machines, reports..." />
-      </div>
+  <!-- Sidebar: full viewport height, left column -->
+  <aside class="texcheck-sidebar">
+    <!-- Logo Section -->
+    <div class="sidebar-logo">
+      <img src="TexCheck.png" alt="TexCheck Logo" class="sidebar-logo-img" />
+      <span class="sidebar-logo-text">TexCheck</span>
     </div>
 
-    <div class="navbar-right">
-      <button mat-icon-button class="export-btn">
-        <mat-icon>cloud_download</mat-icon>
-        <span>Export</span>
-      </button>
-      <button mat-icon-button class="notification-btn">
-        <mat-icon>notifications</mat-icon>
-        <span class="notification-badge">8</span>
-      </button>
-      <div class="user-profile">
-        <div class="user-avatar-initial">SM</div>
-        <div class="user-info">
-          <span class="user-name">Sara Mitchell</span>
-          <span class="user-role">Manager</span>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Main Content with Sidebar -->
-  <div class="texcheck-main">
-    <!-- Sidebar -->
-    <aside class="texcheck-sidebar">
-      <!-- Logo Section -->
-      <div class="sidebar-logo">
-        <img src="TexCheck.png" alt="TexCheck Logo" class="sidebar-logo-img" />
-        <span class="sidebar-logo-text">TexCheck</span>
-      </div>
-
+    <div class="sidebar-scroll">
       <!-- Navigation Section -->
       <div class="sidebar-section">
         @for (item of sidebarItems(); track item.link) {
           <a
             [routerLink]="item.link"
             routerLinkActive="active"
+            [routerLinkActiveOptions]="item.exact ? { exact: true } : { exact: false }"
             class="sidebar-item"
             [class.has-badge]="item.badge"
           >
             <mat-icon>{{ item.icon }}</mat-icon>
-            <span>{{ item.label }}</span>
+            <span>{{ item.labelKey | translate }}</span>
             @if (item.badge) {
               <span class="badge">{{ item.badge }}</span>
             }
@@ -63,35 +32,100 @@
 
       <!-- System Section -->
       <div class="sidebar-section system">
-        <div class="section-title">SYSTEM</div>
+        <div class="section-title">{{ 'layout.system.section' | translate }}</div>
         @for (item of systemItems(); track item.link) {
-          <a [routerLink]="item.link" routerLinkActive="active" class="sidebar-item">
+          <a
+            [routerLink]="item.link"
+            routerLinkActive="active"
+            class="sidebar-item"
+          >
             <mat-icon>{{ item.icon }}</mat-icon>
-            <span>{{ item.label }}</span>
+            <span>{{ item.labelKey | translate }}</span>
             @if (item.badge) {
               <span class="badge">{{ item.badge }}</span>
             }
           </a>
         }
       </div>
+    </div>
 
-      <!-- User Card Footer -->
-      <div class="sidebar-footer">
-        <div class="user-card">
-          <div class="user-avatar-initial-small">SM</div>
-          <div class="user-card-info">
-            <span class="user-name-small">Sara Mitchell</span>
-            <span class="user-role-small">Maintenance Manager</span>
-          </div>
+    <!-- User profile pinned to bottom -->
+    <div class="sidebar-footer">
+      <div class="user-card">
+        <div class="user-avatar-initial-small">SM</div>
+        <div class="user-card-info">
+          <span class="user-name-small">Sara Mitchell</span>
+          <span class="user-role-small">{{ 'layout.user.role-demo' | translate }}</span>
+        </div>
+        <button
+          mat-icon-button
+          type="button"
+          class="profile-menu-trigger"
+          [matMenuTriggerFor]="sidebarProfileMenu"
+          [attr.aria-label]="'layout.user.menu' | translate"
+        >
+          <mat-icon>more_vert</mat-icon>
+        </button>
+      </div>
+      <mat-menu #sidebarProfileMenu="matMenu">
+        <button mat-menu-item type="button">{{ 'layout.user.profile' | translate }}</button>
+        <button mat-menu-item type="button">{{ 'layout.user.sign-out' | translate }}</button>
+      </mat-menu>
+    </div>
+  </aside>
+
+  <!-- Right column: navbar + page content + footer -->
+  <div class="texcheck-main">
+    <nav class="texcheck-navbar">
+      <div class="navbar-left">
+        <div class="search-box">
+          <mat-icon>search</mat-icon>
+          <input
+            type="search"
+            [placeholder]="'layout.search.placeholder' | translate"
+            autocomplete="off"
+          />
         </div>
       </div>
-    </aside>
 
-    <!-- Page Content -->
+      <div class="navbar-right">
+        <span class="navbar-date">{{ headerDate | date: 'EEE d MMMM y' }}</span>
+        <button
+          mat-icon-button
+          type="button"
+          class="navbar-bell-btn"
+          [attr.aria-label]="'layout.header.notifications' | translate"
+        >
+          <mat-icon>notifications</mat-icon>
+          @if (headerNotificationCount > 0) {
+            <span class="notification-badge">{{ headerNotificationCount }}</span>
+          }
+        </button>
+        <button
+          mat-button
+          type="button"
+          class="header-user-menu-trigger"
+          [matMenuTriggerFor]="headerUserMenu"
+          [attr.aria-label]="'layout.user.menu' | translate"
+        >
+          <span class="user-avatar-initial">SM</span>
+          <span class="header-user-text">
+            <span class="user-name">Sara Mitchell</span>
+            <span class="user-role">{{ 'layout.user.short-role' | translate }}</span>
+          </span>
+          <mat-icon class="header-user-chevron">expand_more</mat-icon>
+        </button>
+        <mat-menu #headerUserMenu="matMenu">
+          <button mat-menu-item type="button">{{ 'layout.user.profile' | translate }}</button>
+          <button mat-menu-item type="button">{{ 'layout.user.sign-out' | translate }}</button>
+        </mat-menu>
+      </div>
+    </nav>
+
     <main class="texcheck-content">
       <router-outlet />
     </main>
+
+    <app-footer-content />
   </div>
 </div>
-
-<app-footer-content />

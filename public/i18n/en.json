@@ -10,8 +10,74 @@
     "content": "TexCheck is a Fleet Monitoring Platform for predictive maintenance and asset optimization."
   },
   "home": {
+    "hero": {
+      "pill": "Textile SMEs · Industrial maintenance",
+      "title": "TexCheck for your textile shop floor",
+      "lead": "Move beyond spreadsheets and paper trails: machinery maintenance, asset-level traceability, and preventive planning in one platform."
+    },
+    "personas": {
+      "section-title": "Who TexCheck is for",
+      "leaders": {
+        "title": "Operations leaders",
+        "subtitle": "Shop-floor visibility and data-backed decisions",
+        "f1": "KPIs and dashboards for performance and cost tracking",
+        "f2": "Failures and downtime surfaced so you can prioritize",
+        "f3": "Preventive planning and follow-through on compliance"
+      },
+      "staff": {
+        "title": "Maintenance staff",
+        "subtitle": "Less friction on the floor, more actionable context",
+        "f1": "Fast logging of issues and work performed",
+        "f2": "Clear coordination across teams and shifts",
+        "f3": "Machine and component history always within reach",
+        "f4": "Workflows shaped for mobile use on the aisle"
+      }
+    },
+    "cta": {
+      "title": "Want the big picture?",
+      "hint": "The dashboard brings together your overview and key shop-floor metrics.",
+      "button": "Go to dashboard"
+    }
+  },
+  "dashboard": {
     "title": "Dashboard",
-    "content": "Welcome to TexCheck Dashboard"
+    "content": "Fleet overview and key metrics will appear here."
+  },
+  "layout": {
+    "nav": {
+      "home": "Home",
+      "dashboard": "Dashboard",
+      "assets": "Assets",
+      "maintenance": "Maintenance",
+      "failures": "Failures",
+      "reports": "Reports"
+    },
+    "system": {
+      "section": "SYSTEM",
+      "notifications": "Notifications",
+      "users": "Users",
+      "settings": "Settings"
+    },
+    "search": {
+      "placeholder": "Search assets..."
+    },
+    "user": {
+      "role-demo": "Maintenance Manager",
+      "short-role": "Manager",
+      "profile": "Profile",
+      "sign-out": "Sign out",
+      "menu": "User menu"
+    },
+    "header": {
+      "notifications": "Notifications"
+    },
+    "footer": {
+      "last-synced": "Last synced: Today at 09:45 AM",
+      "refresh-sync": "Refresh sync status",
+      "add-asset": "Add Asset",
+      "schedule-maintenance": "Schedule Maintenance",
+      "report-failure": "Report Failure"
+    }
   },
   "page-not-found": {
     "title": "Page not found",
