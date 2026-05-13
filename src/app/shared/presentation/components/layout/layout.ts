@@ -3,7 +3,8 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
-import {FooterContent} from '../footer-content';
+import {FooterContent} from '../footer-content/footer-content';
+import {LanguageSwitcher} from '../language-switcher/language-switcher';
 import {CommonModule, DatePipe} from '@angular/common';
 import {TranslatePipe} from '@ngx-translate/core';
 
@@ -31,6 +32,7 @@ interface SidebarItem {
     MatIconModule,
     MatMenuModule,
     FooterContent,
+    LanguageSwitcher,
   ],
   templateUrl: './layout.html',
   styleUrl: './layout.css'

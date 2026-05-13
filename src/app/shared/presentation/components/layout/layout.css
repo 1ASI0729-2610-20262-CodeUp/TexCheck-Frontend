@@ -182,6 +182,35 @@
   color: var(--medium-gray);
 }
 
+/* User header section - new layout for avatar on one side, name on other */
+.user-header-section {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: 0 var(--spacing-md);
+  border-radius: var(--radius-md);
+}
+
+.user-header-section:hover {
+  background-color: rgba(15, 185, 177, 0.08);
+}
+
+.user-info-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  min-width: 0;
+}
+
+.user-avatar-btn {
+  padding: 4px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Right column: navbar + scrollable main + footer */
 .texcheck-main {
   display: flex;

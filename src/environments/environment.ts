@@ -1,9 +1,6 @@
 export const environment = {
   production: true,
-  platformProviderApiBaseUrl: 'http://localhost:3000/api/v1',
-  platformProviderCategoriesEndpointPath: '/categories',
-  platformProviderCoursesEndpointPath: '/courses',
-  platformProviderSignInEndpointPath: '/authentication/sign-in',
-  platformProviderSignUpEndpointPath: '/authentication/sign-up',
-  logoProviderApiBaseUrl: 'https://img.logo.dev/',
+  apiBaseUrl: 'https://6a03e6462afe8349b4b59580d.mockapi.io/api/v1',
+  dashboardEndpoint: '/dashboard',
+  assetsEndpoint: '/assets',
 };

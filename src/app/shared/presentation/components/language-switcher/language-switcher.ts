@@ -22,7 +22,7 @@ export class LanguageSwitcher {
   /**
    * List of available language codes.
    */
-  protected languages: string[] ;
+  protected languages: string[] = [];
 
   /**
    * Translation service instance.

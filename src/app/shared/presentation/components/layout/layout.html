@@ -101,24 +101,30 @@
             <span class="notification-badge">{{ headerNotificationCount }}</span>
           }
         </button>
-        <button
-          mat-button
-          type="button"
-          class="header-user-menu-trigger"
-          [matMenuTriggerFor]="headerUserMenu"
-          [attr.aria-label]="'layout.user.menu' | translate"
-        >
-          <span class="user-avatar-initial">SM</span>
-          <span class="header-user-text">
+
+        <!-- Language Switcher -->
+        <app-language-switcher></app-language-switcher>
+
+        <!-- User Info and Avatar -->
+        <div class="user-header-section">
+          <div class="user-info-text">
             <span class="user-name">Sara Mitchell</span>
             <span class="user-role">{{ 'layout.user.short-role' | translate }}</span>
-          </span>
-          <mat-icon class="header-user-chevron">expand_more</mat-icon>
-        </button>
-        <mat-menu #headerUserMenu="matMenu">
-          <button mat-menu-item type="button">{{ 'layout.user.profile' | translate }}</button>
-          <button mat-menu-item type="button">{{ 'layout.user.sign-out' | translate }}</button>
-        </mat-menu>
+          </div>
+          <button
+            mat-icon-button
+            type="button"
+            class="user-avatar-btn"
+            [matMenuTriggerFor]="headerUserMenu"
+            [attr.aria-label]="'layout.user.menu' | translate"
+          >
+            <span class="user-avatar-initial">SM</span>
+          </button>
+          <mat-menu #headerUserMenu="matMenu">
+            <button mat-menu-item type="button">{{ 'layout.user.profile' | translate }}</button>
+            <button mat-menu-item type="button">{{ 'layout.user.sign-out' | translate }}</button>
+          </mat-menu>
+        </div>
       </div>
     </nav>
 
